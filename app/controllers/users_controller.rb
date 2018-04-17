@@ -25,7 +25,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-	user = User.create!(user_params)	
+	user = User.create!(user_params)
+	flash[:notice] = "User succesfully created"	
+	redirect_to user_path(user)
     #complete this method
   end
 
@@ -34,12 +36,15 @@ class UsersController < ApplicationController
   def update
 	user = User.find(params[:id])
 	user.update(user_params)
+	flash[:notice] = "User succesfully updated"
+	redirect_to user_path(user)
     #complete this method
   end
 
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+	
     #complete this method
   end
 
