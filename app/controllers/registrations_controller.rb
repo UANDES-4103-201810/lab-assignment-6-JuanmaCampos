@@ -14,5 +14,16 @@ class RegistrationsController < ApplicationController
       		params.require(:user, :name, :last_name, :email, :password, :phone)
 		
     	end
+
+	def is_user_registered
+		
+			
+
+			
+			
+	
+	end
+
+	
 	
 end
