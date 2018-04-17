@@ -25,12 +25,15 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+	user = User.create!(user_params)	
     #complete this method
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+	user = User.find(params[:id])
+	user.update(user_params)
     #complete this method
   end
 
