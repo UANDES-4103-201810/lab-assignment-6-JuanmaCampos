@@ -5,25 +5,23 @@ class RegistrationsController < ApplicationController
 
 	def create
 		user = User.create!(user_params)
+		if user.save == true
+		cookies.signed[:user_id] = user.id
+		flash[:notice] = "Registered"
+		redirect_to root_url
+		end
 		
 
 	    #complete this method
 	end
 	
 	def user_params
-      		params.require(:user, :name, :last_name, :email, :password, :phone)
+      		params.require(:registrations).permit(:name, :last_name, :email, :password, :phone)
 		
     	end
-
-	def is_user_registered
-		
-			
-
-			
-			
-	
-	end
-
-	
 	
 end
+
+	
+	
+
