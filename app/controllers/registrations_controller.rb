@@ -9,6 +9,10 @@ class RegistrationsController < ApplicationController
 		cookies.signed[:user_id] = user.id
 		flash[:notice] = "Registered"
 		redirect_to root_url
+		
+		else
+		flash[:notice] = "Could not creat user. Try again"
+		redirect_to registration_url
 		end
 		
 
